@@ -9,6 +9,15 @@ void preencher_vetor(int n, int v[n], int auto_fill) {
     }
 }
 
+void preencher_matriz(int n, int m[n][n], int auto_fill) {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (auto_fill) m[i][j] = rand() % 20;
+            else { printf("M[%d][%d]: ", i, j); scanf("%d", &m[i][j]); }
+        }
+    }
+}
+
 // Questão 01
 int funcao1(int n, int v[n], int k, int busk[k]) {
     int total = 0;
@@ -21,7 +30,22 @@ int funcao1(int n, int v[n], int k, int busk[k]) {
 }
 
 // Questão 02
+int pairAnalysisTriangularMatrix(int n, int m[n][n]) {
+    int total = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+            if ((m[i][j] + m[j][i]) % 5 == 0) {
+                printf("\n%d + %d = %d -> MULTIPLO DE 5\n",
+                       m[i][j],
+                       m[j][i],
+                       m[i][j] + m[j][i]);
 
+                total++;
+            }
+        }
+    }
+    return total;
+}
 
 // Questão 03 
 
@@ -50,6 +74,13 @@ int main() {
         preencher_vetor(n, v, auto_fill);
         preencher_vetor(k, busk, auto_fill);
         printf("Resultado F1: %d\n", funcao1(n, v, k, busk));
+    } else if (opcao == 2) {
+        int n = 4;
+        int m[n][n];
+        preencher_matriz(n, m, auto_fill);
+        printf("\nResultado F2: %d\n", pairAnalysisTriangularMatrix(n, m));
+    } else {
+        printf("Opcao invalida");
     }
 
     return 0;
