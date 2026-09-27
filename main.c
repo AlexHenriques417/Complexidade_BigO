@@ -47,11 +47,48 @@ int pairAnalysisTriangularMatrix(int n, int m[n][n]) {
     return total;
 }
 
-// Questão 03 
+// Questão 03
+int comparar_matrizes_3d(int n, int A[n][n][n], int B[n][n][n]) {
+    int somaA = 0;
+    int somaB = 0;
 
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                somaA += A[i][j][k];
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                somaB += B[i][j][k];
+            }
+        }
+    }
+
+    if (somaA >= somaB) {
+        return 1;
+    }
+
+    return 0;
+}
 
 // Questão 04
+long long processar_vetor(int n, int v[n]) {
+    long long soma = 0;
 
+    for (int i = 0; i < n; i++) {
+        if (v[i] % 2 == 0) {
+            soma += v[i];
+        } else {
+            soma += fatorial(v[i]);
+        }
+    }
+
+    return soma;
+}
 
 // Questão 05
 
