@@ -91,8 +91,38 @@ long long processar_vetor(int n, int v[n]) {
 }
 
 // Questão 05
+int busca_binaria(int n, int v[n], int valor) {
+    int inicio = 0;
+    int fim = n - 1;
 
+    while (inicio <= fim) {
+        int meio = inicio + (fim - inicio) / 2;
 
+        if (v[meio] == valor) {
+            return 1;
+        }
+
+        if (v[meio] < valor) {
+            inicio = meio + 1;
+        } else {
+            fim = meio - 1;
+        }
+    }
+
+    return 0;
+}
+
+int contar_elementos_presentes(int n, int A[n], int B[n]) {
+    int total = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (busca_binaria(n, B, A[i])) {
+            total++;
+        }
+    }
+
+    return total;
+}
 
 int main() {
     srand(time(NULL));
