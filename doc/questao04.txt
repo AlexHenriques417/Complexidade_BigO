@@ -1,0 +1,62 @@
+Função 4: Análise de Casos Assimétricos no Condicional
+
+A) Pseudocódigo
+
+função fatorial(m)
+    fat ← 1
+    para i ← 2 até m faça
+        fat ← fat * i
+    fim para
+    retorne fat
+fim função
+
+função processarVetor(v, n)
+    soma ← 0
+    para i ← 0 até n-1 faça
+        se v[i] mod 2 = 0 então
+            soma ← soma + v[i]
+        senão
+            soma ← soma + fatorial(v[i])
+        fim se
+    fim para
+    retorne soma
+fim função
+
+
+B) Tabela de Complexidade (Pior Caso)
+
+Linha                      | Operação                                        | Execuções | Custo Total
+---------------------------|-------------------------------------------------|-----------|------------
+soma ← 0                   | Atribuição                                      | 1         | 1
+para i ← 0 até n-1         | Controle do laço                                | n         | 2n + 1
+se v[i] mod 2 = 0          | 1 Acesso + 1 Módulo + 1 Comparação (3 ops)      | n         | 3n
+fatorial(v[i])             | Execução do fatorial de valor m                 | n         | 3m · n
+soma ← soma + fat          | 1 Soma + 1 Atribuição (2 ops)                   | n         | 2n
+retorne soma               | Retorno                                         | 1         | 1
+
+
+C) Big O
+
+T(n, m) = 1 + (2n + 1) + 3n + 3mn + 2n + 1 = (3m + 7)n + 3
+
+Como o valor de m é uma constante limitada pelo tamanho de representação de
+inteiros em memória (m ≤ 20), o crescimento assintótico depende apenas de n:
+
+T(n) = O(n)
+
+Classificação: Complexidade Linear (no pior caso).
+
+
+D) Tempo de Execução e Número de Operações
+
+- Parâmetros: n = 50.000 e um valor ímpar médio de m = 11.
+
+- Número Exato de Operações:
+
+  T(50000) = (3(11) + 7) · 50000 + 3 = 40 · 50000 + 3 = 2.000.003 operações
+
+- Tempo Estimado de Execução:
+
+  - Em um processador de 10^9 ops/s (1 GHz):
+
+    Tempo = 2.000.003 / 10^9 ≈ 0,002 segundos (2 ms)
