@@ -1,0 +1,41 @@
+Função 1: Contagem de Ocorrências Distintas
+
+A) Pseudocódigo
+
+função funcao1(v, busk, n, k)
+    total ← 0
+    para i ← 0 até k-1 faça
+        para j ← 0 até n-1 faça
+            se busk[i] = v[j] então
+                total ← total + 1
+            fim se
+        fim para
+    fim para
+    retorne total
+fim função
+
+B) Tabela de Complexidade
+
+            Linha             |               Operação                |            Execuções        |      Custo Total
+total ← 0                     |               Atribuição              |                1            |           1
+para i ← 0 até k-1            |  Atribuição i=0 + (Teste+Incremento)  |              1+k+k          |          2k+1
+para j ← 0 até n-1            |  (1 atribuição +Teste+Incremento) kn  |             k+kn+kn         |         2kn+k
+se busk[i] = v[j]             |   2 Acessos a vetor + 1 Comparação    |               k×n           |          3kn
+total ← total + 1             |   1 Soma + 1 Atribuição (pior caso)   |               k×n           |          2kn
+retorne total                 |               Retorno                 |                1            |           1
+
+C) Big O
+T(n, k) = 1 + (2k + 1) + (2kn + k) + 3kn + 2kn + 1 = 7kn + 3k + 3
+
+O termo dominante é 7kn: T(n, k) = O(k . n)
+Classificação: Complexidade Bilinear (Linear nos dois parâmetros independentes k e n).
+
+D) Tempo de Execução e Número de Operações
+Parâmetros: n = 50.000 e k = 4.000
+
+Número Exato de Operações (Pior Caso):
+T(50000, 4000) = 7(4000)(50000) + 3(4000) + 3 = 1.400.012.003 operações
+
+Tempo Estimado de Execução:
+Em um processador com taxa útil de 10^9 1 GHz:
+Tempo = 1.400.012.003 / 10^9 = 1,40 segundos
