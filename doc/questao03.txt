@@ -1,0 +1,50 @@
+Função 3: Comparação de Matrizes Tridimensionais
+
+A) Pseudocódigo
+
+função compararMatrizes3D(A, B, n)
+    somaA ← 0
+    somaB ← 0
+    para i ← 0 até n-1 faça
+        para j ← 0 até n-1 faça
+            para k ← 0 até n-1 faça
+                somaA ← somaA + A[i][j][k]
+                somaB ← somaB + B[i][j][k]
+            fim para
+        fim para
+    fim para
+    se somaA ≥ somaB então
+        retorne 1
+    senão
+        retorne 0
+    fim se
+fim função
+
+B) Tabela de Complexidade
+
+            Linha                           |               Operação                                  |            Execuções        |      Custo Total
+somaA ← 0                                   |               Atribuição                                |                1            |           1
+somaB ← 0                                   |               Atribuição                                |                1            |           1
+para i                                      |               Controle do laço i                        |                n            |           2n + 1
+para j                                      |               Controle do laço j                        |                n * n        |           2n² + n
+para k                                      |               Controle do laço k                        |                n * n * n    |           2n³ + n²
+somaA ← somaA + A[i][j][k]                  |               1 Acesso + 1 Soma + 1 Atribuição (3 ops)  |                n³           |           3n³
+somaB ← somaB + B[i][j][k]                  |               1 Acesso + 1 Soma + 1 Atribuição (3 ops)  |                n³           |           3n³
+se somaA ≥ somaB                            |               1 Comparação                              |                1            |           1
+retorne 1 / 0                               |               Retorno                                   |                1            |           1
+
+C) Big O
+T(n) = 1 + 1 + (2n + 1) + (2n² + n) + (2n³ + n²) + 3n³ + 3n³ + 1 + 1 = 8n³ + 3n² + 3n + 5
+
+O termo dominante é 8n³: T(n) = O(n³)
+Classificação: Complexidade Cúbica
+
+D) Tempo de Execução e Número de Operações
+Parâmetros: n = 300.
+
+Número Exato de Operações:
+T(300) = 8(300)³ + 3(300)² + 3(300) + 6 = 216.000.000 + 270.000 + 900 + 6 = 216.270.905
+
+Tempo Estimado de Execução:
+Em um processador com taxa útil de 10⁹ operações 1 GHz:
+Tempo = 216.270.906 / 10⁹ = 0,216 segundos (216 ms)

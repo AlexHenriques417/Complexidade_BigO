@@ -1,0 +1,41 @@
+Função 2: Análise de Pares em Matriz Triangular 
+
+A) Pseudocódigo
+
+função pairAnalysisTriangularMatrix(m, n)
+    total ← 0
+    para i ← 0 até n-1 faça
+        para j ← 0 até n-1 faça
+            se (m[i][j] + m[j][i]) mod 5 = 0 então
+                total ← total + 1
+            fim se
+        fim para
+    fim para
+    retorne total
+fim função
+
+B) Tabela de Complexidade
+
+            Linha                           |               Operação                |            Execuções        |      Custo Total
+total ← 0                                   |               Atribuição              |                1            |           1
+para i ← 0 até n-1                          |  Atribuição i=0 + (Teste+Incremento)  |              1+k+k          |          2k+1
+para j ← i até n-1                          |  (1 atribuição +Teste+Incremento) kn  |             k+kn+kn         |         2kn+k
+se (m[i][j] + m[j][i]) % 5 == 0             |   2 Acessos a vetor + 1 Comparação    |               k×n           |          3kn
+total ← total + 1                           |   1 Soma + 1 Atribuição (pior caso)   |               k×n           |          2kn
+retorne total                               |               Retorno                 |                1            |           1
+
+C) Big O
+T(n) = 1 + (2n + 1) + (n² + 2n) + 7((n² + n) / 2) + 1 = 4,5n² + 7,5n + 3
+
+O termo dominante é 4,5n²: T(n) = O(n²)
+Classificação: Complexidade Quadrádica
+
+D) Tempo de Execução e Número de Operações
+Parâmetros: n = 500.
+
+Número Exato de Operações (Pior Caso):
+T(500) = 4,5(500)² 7,5(500) + 3 = 1.125.000 + 3.750 + 3 = 1.128.753 operações
+
+Tempo Estimado de Execução:
+Em um processador com taxa útil de 10⁹ operações 1 GHz:
+Tempo = 1.128.753 / 10⁹ = 0,0011 segundos (1,1 ms)
