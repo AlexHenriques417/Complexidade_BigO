@@ -1,0 +1,92 @@
+FUNÇÃO 5: CONTAGEM DE ELEMENTOS PRESENTES EM VETOR ORDENADO
+
+A) PSEUDOCÓDIGO
+
+função buscaBinaria(v, n, valor)
+    inicio ← 0
+    fim ← n - 1
+
+    enquanto inicio ≤ fim faça
+        meio ← inicio + (fim - inicio) / 2
+
+        se v[meio] = valor então
+            retorne 1
+        fim se
+
+        se v[meio] < valor então
+            inicio ← meio + 1
+        senão
+            fim ← meio - 1
+        fim se
+    fim enquanto
+
+    retorne 0
+fim função
+
+
+função contarElementosPresentes(A, B, n)
+    total ← 0
+
+    para i ← 0 até n-1 faça
+        se buscaBinaria(B, n, A[i]) = 1 então
+            total ← total + 1
+        fim se
+    fim para
+
+    retorne total
+fim função
+
+
+B) TABELA DE COMPLEXIDADE
+
+No pior caso, cada Busca Binária executa log₂(n) iterações.
+Cada iteração do enquanto executa aproximadamente 8 operações elementares.
+
+Linha                         Operação                              Execuções       Custo Total
+------------------------------------------------------------------------------------------------
+total ← 0                     Atribuição                            1               1
+para i ← 0 até n-1            Controle do laço                      n               2n + 1
+buscaBinaria(B, n, A[i])      Pior caso (~8 log₂ n ops por busca)   n               8n log₂ n
+se resultado = 1              Comparação de retorno                 n               n
+total ← total + 1             1 Soma + 1 Atribuição                 n               2n
+retorne total                 Retorno                               1               1
+
+
+C) BIG O
+
+T(n) = 1 + (2n + 1) + 8n log₂(n) + n + 2n + 1
+
+T(n) = 8n log₂(n) + 5n + 3
+
+O termo dominante é 8n log₂(n).
+
+Portanto:
+
+T(n) = O(n log n)
+
+Classificação: Complexidade Linearítmica (n log n).
+
+
+D) TEMPO DE EXECUÇÃO E NÚMERO DE OPERAÇÕES
+
+Parâmetros:
+n = 10.000.000 (10⁷)
+
+Cálculo Logarítmico:
+log₂(10.000.000) ≈ 23,2534
+
+Número Exato de Operações:
+
+T(10⁷) = 8(10⁷)(23,2534) + 5(10⁷) + 3
+
+T(10⁷) = 1.860.272.000 + 50.000.000 + 3
+
+T(10⁷) = 1.910.272.003 operações
+
+Tempo Estimado de Execução:
+
+Em um processador de 10⁹ ops/s (1 GHz):
+
+Tempo = 1.910.272.003 / 10⁹
+
+Tempo ≈ 1,91 segundos
