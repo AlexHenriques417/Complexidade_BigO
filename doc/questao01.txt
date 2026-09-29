@@ -37,5 +37,5 @@ Número Exato de Operações (Pior Caso):
 T(50000, 4000) = 7(4000)(50000) + 3(4000) + 3 = 1.400.012.003 operações
 
 Tempo Estimado de Execução:
-Em um processador com taxa útil de 10^9 1 GHz:
-Tempo = 1.400.012.003 / 10^9 = 1,40 segundos
+Em um processador com taxa útil de 10^8 1 GHz:
+Tempo = 1.400.012.003 / 10^8 = 14,00 segundos

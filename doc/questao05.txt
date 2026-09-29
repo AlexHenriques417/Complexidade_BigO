@@ -55,15 +55,12 @@ retorne total                 Retorno                               1           
 C) BIG O
 
 T(n) = 1 + (2n + 1) + 8n log₂(n) + n + 2n + 1
-
 T(n) = 8n log₂(n) + 5n + 3
 
 O termo dominante é 8n log₂(n).
 
 Portanto:
-
 T(n) = O(n log n)
-
 Classificação: Complexidade Linearítmica (n log n).
 
 
@@ -73,20 +70,14 @@ Parâmetros:
 n = 10.000.000 (10⁷)
 
 Cálculo Logarítmico:
-log₂(10.000.000) ≈ 23,2534
+log₂(10.000.000) = 23,2534
 
 Número Exato de Operações:
 
 T(10⁷) = 8(10⁷)(23,2534) + 5(10⁷) + 3
-
 T(10⁷) = 1.860.272.000 + 50.000.000 + 3
-
 T(10⁷) = 1.910.272.003 operações
 
 Tempo Estimado de Execução:
-
-Em um processador de 10⁹ ops/s (1 GHz):
-
-Tempo = 1.910.272.003 / 10⁹
-
-Tempo ≈ 1,91 segundos
+Em um processador de 10^8 ops/s (1 GHz):
+Tempo = 1.910.272.003 / 10^8 = 19,10 segundos

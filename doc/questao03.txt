@@ -46,5 +46,5 @@ Número Exato de Operações:
 T(300) = 8(300)³ + 3(300)² + 3(300) + 6 = 216.000.000 + 270.000 + 900 + 6 = 216.270.905
 
 Tempo Estimado de Execução:
-Em um processador com taxa útil de 10⁹ operações 1 GHz:
-Tempo = 216.270.906 / 10⁹ = 0,216 segundos (216 ms)
+Em um processador com taxa útil de 10^8 operações 1 GHz:
+Tempo = 216.270.906 / 10^8 = 2,16 segundos

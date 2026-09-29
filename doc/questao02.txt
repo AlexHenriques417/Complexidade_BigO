@@ -37,5 +37,5 @@ Número Exato de Operações (Pior Caso):
 T(500) = 4,5(500)² 7,5(500) + 3 = 1.125.000 + 3.750 + 3 = 1.128.753 operações
 
 Tempo Estimado de Execução:
-Em um processador com taxa útil de 10⁹ operações 1 GHz:
-Tempo = 1.128.753 / 10⁹ = 0,0011 segundos (1,1 ms)
+Em um processador com taxa útil de 10^8 operações 1 GHz:
+Tempo = 1.128.753 / 10^8 = 0,011 segundos (11 ms)

@@ -36,27 +36,21 @@ retorne soma               | Retorno                                         | 1
 
 
 C) Big O
-
 T(n, m) = 1 + (2n + 1) + 3n + 3mn + 2n + 1 = (3m + 7)n + 3
 
 Como o valor de m é uma constante limitada pelo tamanho de representação de
 inteiros em memória (m ≤ 20), o crescimento assintótico depende apenas de n:
 
 T(n) = O(n)
-
 Classificação: Complexidade Linear (no pior caso).
 
 
 D) Tempo de Execução e Número de Operações
-
 - Parâmetros: n = 50.000 e um valor ímpar médio de m = 11.
-
 - Número Exato de Operações:
 
   T(50000) = (3(11) + 7) · 50000 + 3 = 40 · 50000 + 3 = 2.000.003 operações
 
 - Tempo Estimado de Execução:
-
-  - Em um processador de 10^9 ops/s (1 GHz):
-
-    Tempo = 2.000.003 / 10^9 ≈ 0,002 segundos (2 ms)
+  - Em um processador de 10^8 ops/s (1 GHz):
+    Tempo = 2.000.003 / 10^8 = 0,020 segundos (20 ms)
